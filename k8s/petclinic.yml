@@ -17,11 +17,10 @@ spec:
       imagePullSecrets:
         - name: acr-secret
       containers:
-      - name: luckywebapp
-        image: ravi5291.azurecr.io/my-app-image:latest
-        ports:
-        - containerPort: 8080
-
+        - name: luckywebapp
+          image: ravi5291.azurecr.io/my-app-image:latest
+          ports:
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -35,6 +34,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-git add jenkinsfile k8s/petclinic.yml
-git commit -m "Add Jenkins pipeline and Kubernetes deployment files"
-git push
